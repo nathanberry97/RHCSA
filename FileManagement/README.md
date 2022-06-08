@@ -106,4 +106,55 @@ tar -cvf example.tar example
 
 #### file and directory operations 
 
+| command    | overview                                                                                      |
+|------------|-----------------------------------------------------------------------------------------------|
+| touch      | creates files                                                                                 |
+| cat > file | allows you to create files and edit the content, to exit press ctrl + d                       |
+| vim        | you can use vim, just open vim with the file name you want to create                          |
+| mkdir      | this command is used to create directories, you are able to create subdir in the smae command |
+| ls         | lists the files and directories                                                               |
+| cat        | displays content of a file, use -n to number the lines                                        |
+| tac        | tac shows the content in a file but in reverse                                                |
+| more       | allows you to read the content easier                                                         |
+| less       | same as more command but doesn't need to read the whole file                                  |
+| tail       | returns the last ten lines of the file, you can pass the -f flag (follow)                     |
+| head       | returns the first ten lines of a text file                                                    |
+| wc         | returns the word count for a file                                                             |
+| cp         | allows you to copy files and directories                                                      |
+| mv         | allows you to move or rename files and directories                                            |
+| rm         | allows you to remove files                                                                    |
+| rmdir      | allows you to remove directories                                                              |
+
 #### file linking
+
+each file has a multitude of attributes assigned to it, these attributes are
+referred to as the file's metadata. The metadata takes up 128 bytes of space
+on each file
+
+###### hard links
+
+is a mapping between one or more filenames and an inode number, making all 
+hard-linked files indistinguishable from eachother. 
+
+```console
+ln file1 file2
+```
+
+the above command will create a hard link of file1 and be called file2, this 
+would be useful if you were working on a file in a deep directory and you want
+to access it easier
+
+###### soft links
+
+maps a link to where the file is stored on the machine, rather than what the
+hard link does and creates two of the same file, which helps in taking up less 
+space on your machine.
+
+```console
+ln -s file1 soft1
+```
+
+the above command will create a soft link for your file, think of it as a 
+shortcut the same way as you can create shortcuts in windows gui
+
+the syntax to create a softlink directory is exactly the same as with a file
